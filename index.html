@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shashank Sati — Systems Engineer specializing in distributed systems, databases, and open source infrastructure software.">
+  <meta name="keywords" content="Shashank Sati, systems engineer, distributed systems, databases, open source, Go, Rust, C++">
+  <meta name="author" content="Shashank Sati">
+  <title>Shashank Sati — Systems Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Pixelify+Sans:wght@400;500;600;700&family=Silkscreen:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <!-- Vignette overlay -->
+  <div class="vignette" aria-hidden="true"></div>
+  <!-- Paper grain overlay -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav id="main-nav" class="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" id="nav-logo">
+        <span class="nav-logo-bracket">[</span>SS<span class="nav-logo-bracket">]</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" id="nav-about">&gt; about</a></li>
+        <li><a href="#projects" id="nav-projects">&gt; projects</a></li>
+        <li><a href="#opensource" id="nav-opensource">&gt; open_source</a></li>
+        <li><a href="#contact" id="nav-contact">&gt; contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header id="hero" class="hero section">
+    <div class="hero-content">
+      <p class="hero-label">&gt; whoami</p>
+      <h1 class="hero-title glitch-text" data-text="Shashank Sati">Shashank Sati</h1>
+      <p class="hero-subtitle">
+        <span class="tag">Systems Engineer</span>
+        <span class="tag-sep">|</span>
+        <span class="tag">Distributed Systems</span>
+        <span class="tag-sep">|</span>
+        <span class="tag">Databases</span>
+        <span class="tag-sep">|</span>
+        <span class="tag">Open Source</span>
+      </p>
+      <p class="hero-desc">
+        Building databases, distributed systems, developer tools, and infrastructure software.
+      </p>
+      <p class="hero-intro">
+        I enjoy designing systems that stay correct under failure, scale gracefully, and remain understandable. My interests span databases, distributed systems, networking, operating systems, and developer infrastructure.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary" id="cta-projects">[ View Projects ]</a>
+        <a href="#opensource" class="btn btn-secondary" id="cta-opensource">[ Open Source Work ]</a>
+        <a href="#resume" class="btn btn-secondary" id="cta-resume">[ Resume ]</a>
+      </div>
+
+      <!-- Terminal animation -->
+      <div class="terminal-window" id="hero-terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot amber"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">portfolio.sh</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line" id="term-line-1">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-text"></span>
+          </div>
+          <div class="terminal-line hidden" id="term-line-2">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-text"></span>
+          </div>
+          <div class="terminal-line hidden" id="term-line-3">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-text"></span>
+          </div>
+          <div class="terminal-line hidden" id="term-line-4">
+            <span class="terminal-prompt">&gt;</span>
+            <span class="terminal-text terminal-green"></span>
+            <span class="cursor-blink">█</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ ACHIEVEMENT STRIP ═══════════ -->
+  <section class="achievements-strip" id="achievements">
+    <div class="achievements-inner">
+      <div class="achievement-badge" id="badge-icpc">
+        <div class="badge-icon">🏆</div>
+        <div class="badge-label">2× ICPC Regionalist</div>
+      </div>
+      <div class="achievement-badge" id="badge-oss">
+        <div class="badge-icon">⚙</div>
+        <div class="badge-label">Open Source Contributor</div>
+      </div>
+      <div class="achievement-badge" id="badge-langs">
+        <div class="badge-icon">⌨</div>
+        <div class="badge-label">Go / Rust / C++</div>
+      </div>
+      <div class="achievement-badge" id="badge-systems">
+        <div class="badge-icon">☰</div>
+        <div class="badge-label">Distributed Systems</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section id="about" class="about section">
+    <div class="section-inner notebook-page">
+      <div class="notebook-margin"></div>
+      <div class="notebook-content">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2 class="section-title">About</h2>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-block">
+            <h3 class="about-heading">&gt; education</h3>
+            <div class="about-card">
+              <p class="about-edu-degree">B.Tech Electronics and Communication Engineering</p>
+            </div>
+          </div>
+
+          <div class="about-block">
+            <h3 class="about-heading">&gt; interests</h3>
+            <div class="about-card">
+              <ul class="about-list">
+                <li><span class="list-bullet">▸</span> Distributed Systems</li>
+                <li><span class="list-bullet">▸</span> Databases</li>
+                <li><span class="list-bullet">▸</span> Networking</li>
+                <li><span class="list-bullet">▸</span> Operating Systems</li>
+                <li><span class="list-bullet">▸</span> Performance Engineering</li>
+                <li><span class="list-bullet">▸</span> Open Source</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="about-block about-philosophy">
+            <h3 class="about-heading">&gt; philosophy</h3>
+            <div class="about-card quote-card">
+              <blockquote>
+                "I like understanding how systems work from first principles. Whether it's a database replication protocol, a network stack, or an operating system scheduler, I enjoy digging into the layers beneath abstractions."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROJECTS ═══════════ -->
+  <section id="projects" class="projects section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Projects</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- SevenDB — Flagship -->
+        <div class="project-card flagship" id="project-sevendb">
+          <div class="card-top-strip">
+            <span class="card-label">★ FLAGSHIP</span>
+            <span class="card-cartridge-id">CART-001</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">SevenDB</h3>
+            <p class="card-desc">
+              A reactive distributed in-memory database designed around durable subscriptions, deterministic execution, and fault tolerance.
+            </p>
+            <div class="card-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Raft-based replication</li>
+                <li>Deterministic testing harness</li>
+                <li>Durable subscriptions</li>
+                <li>WAL persistence</li>
+                <li>Reactive data model</li>
+              </ul>
+            </div>
+            <div class="card-metrics">
+              <div class="metric">
+                <span class="metric-value">123k+</span>
+                <span class="metric-label">ops/sec</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">0.111ms</span>
+                <span class="metric-label">p50 latency</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">0.349ms</span>
+                <span class="metric-label">p99 latency</span>
+              </div>
+            </div>
+            <div class="card-tech">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Raft</span>
+              <span class="tech-tag">WAL</span>
+            </div>
+            <a href="https://github.com/shashank-sati" class="card-link" id="link-sevendb" target="_blank" rel="noopener">
+              &gt; view on GitHub_
+            </a>
+          </div>
+        </div>
+
+        <!-- Khoj -->
+        <div class="project-card" id="project-khoj">
+          <div class="card-top-strip">
+            <span class="card-label">PROJECT</span>
+            <span class="card-cartridge-id">CART-002</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Khoj</h3>
+            <p class="card-desc">
+              A Rust-based TF-IDF search engine optimized for local document search.
+            </p>
+            <div class="card-metrics">
+              <div class="metric">
+                <span class="metric-value">859</span>
+                <span class="metric-label">files / 3.54s</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">518+</span>
+                <span class="metric-label">QPS</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">1.68ms</span>
+                <span class="metric-label">avg latency</span>
+              </div>
+            </div>
+            <div class="card-tech">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">TF-IDF</span>
+            </div>
+            <a href="https://github.com/shashank-sati" class="card-link" id="link-khoj" target="_blank" rel="noopener">
+              &gt; view on GitHub_
+            </a>
+          </div>
+        </div>
+
+        <!-- Teach-Code -->
+        <div class="project-card" id="project-teachcode">
+          <div class="card-top-strip">
+            <span class="card-label">PROJECT</span>
+            <span class="card-cartridge-id">CART-003</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Teach-Code</h3>
+            <p class="card-desc">
+              Collaborative coding platform featuring real-time code editing, shared whiteboard, and voice communication.
+            </p>
+            <div class="card-tech">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">WebRTC</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">Next.js</span>
+            </div>
+            <a href="https://github.com/shashank-sati" class="card-link" id="link-teachcode" target="_blank" rel="noopener">
+              &gt; view on GitHub_
+            </a>
+          </div>
+        </div>
+
+        <!-- Quic.blog -->
+        <div class="project-card" id="project-quicblog">
+          <div class="card-top-strip">
+            <span class="card-label">PROJECT</span>
+            <span class="card-cartridge-id">CART-004</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Quic.blog</h3>
+            <p class="card-desc">
+              Interactive TCP vs QUIC visualization and educational platform.
+            </p>
+            <div class="card-metrics">
+              <div class="metric">
+                <span class="metric-value">2,000+</span>
+                <span class="metric-label">readers</span>
+              </div>
+            </div>
+            <div class="card-tech">
+              <span class="tech-tag">QUIC</span>
+              <span class="tech-tag">TCP</span>
+              <span class="tech-tag">Visualization</span>
+            </div>
+            <a href="https://github.com/shashank-sati" class="card-link" id="link-quicblog" target="_blank" rel="noopener">
+              &gt; view on GitHub_
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ OPEN SOURCE ═══════════ -->
+  <section id="opensource" class="opensource section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Open Source</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="issue-tracker">
+        <div class="tracker-header">
+          <span class="tracker-title">CONTRIBUTIONS</span>
+          <span class="tracker-status">● MERGED</span>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-entry" id="oss-flatbuffers">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-project">FlatBuffers</span>
+                <span class="timeline-type">FEATURE</span>
+              </div>
+              <h3 class="timeline-title">gRPC Callback Service Support</h3>
+              <p class="timeline-desc">
+                Added callback service support to FlatBuffers gRPC integration.
+              </p>
+              <a href="https://github.com/google/flatbuffers" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+            </div>
+          </div>
+
+          <div class="timeline-entry" id="oss-kubevirt">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-project">KubeVirt</span>
+                <span class="timeline-type">FIX</span>
+              </div>
+              <h3 class="timeline-title">Startup Probe Configuration</h3>
+              <p class="timeline-desc">
+                Contributed startup probe fixes to the KubeVirt project.
+              </p>
+              <a href="https://github.com/kubevirt/kubevirt" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT / FOOTER ═══════════ -->
+  <footer id="contact" class="contact section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Contact</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="contact-content">
+        <p class="contact-text">
+          &gt; Interested in collaborating or just want to talk systems?
+        </p>
+        <div class="contact-links">
+          <a href="https://github.com/shashank-sati" class="contact-link" id="contact-github" target="_blank" rel="noopener">
+            [ GitHub ]
+          </a>
+          <a href="mailto:hello@shashanksati.com" class="contact-link" id="contact-email">
+            [ Email ]
+          </a>
+          <a href="https://linkedin.com/in/shashank-sati" class="contact-link" id="contact-linkedin" target="_blank" rel="noopener">
+            [ LinkedIn ]
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-text">
+          &copy; 2026 Shashank Sati &mdash; Crafted with care <span class="cursor-blink">█</span>
+        </p>
+        <p class="footer-note">
+          /* no frameworks were harmed in the making of this site */
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
