@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<!--
+  ┌─────────────────────────────────────────────────┐
+  │  You're reading the source. That's my lad!.     │
+  │                                                 │
+  │  > "The best code is the code you don't write." │
+  │    But someone had to write this.               │
+  │                                                 │
+  │  Try the Konami Code. You know the one.         │
+  │  ↑ ↑ ↓ ↓ ← → ← → B A                            │
+  │                                                 │
+  │  Also try clicking the logo a few times.        │
+  └─────────────────────────────────────────────────┘
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -64,7 +77,7 @@
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary" id="cta-projects">[ View Projects ]</a>
         <a href="#opensource" class="btn btn-secondary" id="cta-opensource">[ Open Source Work ]</a>
-        <a href="#resume" class="btn btn-secondary" id="cta-resume">[ Resume ]</a>
+        <a href="public/resume.pdf" class="btn btn-secondary" id="cta-resume" target="_blank" rel="noopener">[ Resume ]</a>
       </div>
 
       <!-- Terminal animation -->
@@ -385,7 +398,7 @@
           <a href="mailto:hello@shashanksati.com" class="contact-link" id="contact-email">
             [ Email ]
           </a>
-          <a href="https://linkedin.com/in/shashank-sati" class="contact-link" id="contact-linkedin" target="_blank" rel="noopener">
+          <a href="javascript:void(0)" class="contact-link" id="contact-linkedin">
             [ LinkedIn ]
           </a>
         </div>
@@ -401,6 +414,24 @@
       </div>
     </div>
   </footer>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Konami code reward overlay -->
+  <div id="konami-overlay" class="konami-overlay hidden" aria-hidden="true">
+    <div class="konami-box">
+      <pre class="konami-art">
+ _____ _____ _____ _____ _____
+|   __|   __|  |  |   __|   | |
+|__   |   __|  |  |   __| | | |
+|_____|_____|_____|_____|_|___|
+      </pre>
+      <p class="konami-msg">&gt; ACHIEVEMENT UNLOCKED</p>
+      <p class="konami-sub">You found the secret sequence.<br>You clearly know your way around a keyboard.</p>
+      <p class="konami-hint">// press any key or click to dismiss</p>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

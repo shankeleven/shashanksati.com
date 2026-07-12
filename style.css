@@ -386,10 +386,110 @@ body {
   font-size: 0.72rem; color: var(--green); opacity: 0.4; font-style: italic;
 }
 
+/* ═══════════ TOAST NOTIFICATIONS ═══════════ */
+.toast-container {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 10000;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  background: var(--coffee); border: 2px solid var(--green);
+  padding: 0; min-width: 300px; max-width: 380px;
+  font-family: var(--body-font); font-size: 0.82rem;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  animation: toast-in 0.4s ease forwards;
+  position: relative; overflow: hidden;
+}
+.toast.toast-out { animation: toast-out 0.35s ease forwards; }
+.toast-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.4rem 0.7rem; background: rgba(136,168,90,0.15);
+  border-bottom: 1px solid rgba(136,168,90,0.2);
+}
+.toast-header-label {
+  font-family: var(--pixel-font); font-size: 0.7rem;
+  color: var(--green); letter-spacing: 1px;
+}
+.toast-close {
+  background: none; border: none; color: var(--red);
+  font-family: var(--body-font); font-size: 0.9rem;
+  cursor: pointer; padding: 0 0.2rem; line-height: 1;
+}
+.toast-close:hover { color: var(--paper); }
+.toast-body { padding: 0.7rem; }
+.toast-body p { color: var(--paper); line-height: 1.5; margin: 0; }
+.toast-body .toast-prompt { color: var(--green); }
+.toast-body .toast-accent { color: var(--amber); }
+
+@keyframes toast-in {
+  0% { opacity: 0; transform: translateX(100%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes toast-out {
+  0% { opacity: 1; transform: translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateX(100%) scale(0.95); }
+}
+
+/* ═══════════ KONAMI OVERLAY ═══════════ */
+.konami-overlay {
+  position: fixed; inset: 0; z-index: 10001;
+  background: rgba(43,29,22,0.92);
+  display: flex; align-items: center; justify-content: center;
+  animation: konami-flash 0.6s ease;
+}
+.konami-overlay.hidden { display: none; }
+.konami-box {
+  text-align: center; padding: 2.5rem;
+  border: 3px solid var(--green);
+  background: var(--coffee);
+  box-shadow: 0 0 40px rgba(136,168,90,0.2), inset 0 0 30px rgba(136,168,90,0.05);
+  max-width: 500px;
+}
+.konami-art {
+  font-family: var(--body-font); font-size: 0.6rem;
+  color: var(--green); margin-bottom: 1.5rem;
+  line-height: 1.2; white-space: pre;
+}
+.konami-msg {
+  font-family: var(--heading-font); font-size: 0.8rem;
+  color: var(--amber); margin-bottom: 0.8rem;
+  animation: blink 1.2s step-end infinite;
+}
+.konami-sub {
+  font-family: var(--body-font); font-size: 0.82rem;
+  color: var(--paper); opacity: 0.8; margin-bottom: 1.2rem; line-height: 1.6;
+}
+.konami-hint {
+  font-family: var(--body-font); font-size: 0.7rem;
+  color: var(--green); opacity: 0.4; font-style: italic;
+}
+
+@keyframes konami-flash {
+  0% { background: rgba(136,168,90,0.4); }
+  30% { background: rgba(43,29,22,0.92); }
+  50% { background: rgba(136,168,90,0.15); }
+  100% { background: rgba(43,29,22,0.92); }
+}
+
+/* CRT glitch effect triggered by konami */
+body.crt-glitch { animation: crt-glitch-effect 0.15s linear 3; }
+@keyframes crt-glitch-effect {
+  0% { transform: translate(0); filter: hue-rotate(0deg); }
+  25% { transform: translate(-2px, 1px); filter: hue-rotate(90deg); }
+  50% { transform: translate(1px, -1px); filter: hue-rotate(180deg); }
+  75% { transform: translate(-1px, 2px); filter: hue-rotate(270deg); }
+  100% { transform: translate(0); filter: hue-rotate(360deg); }
+}
+
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 480px) {
   .hero-title { font-size: 1.3rem; }
   .section { padding: 3rem 1rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card.flagship .card-body { grid-template-columns: 1fr; }
+  .toast { min-width: 240px; max-width: 300px; }
+  .konami-box { padding: 1.5rem; margin: 1rem; }
+  .konami-art { font-size: 0.45rem; }
 }
+
