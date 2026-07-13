@@ -230,9 +230,14 @@
               <span class="tech-tag">Raft</span>
               <span class="tech-tag">WAL</span>
             </div>
-            <a href="https://github.com/sevenDatabase/SevenDB" class="card-link" id="link-sevendb" target="_blank" rel="noopener">
-              &gt; view on GitHub_
-            </a>
+            <div class="card-actions">
+              <a href="https://github.com/sevenDatabase/SevenDB" class="card-link" id="link-sevendb" target="_blank" rel="noopener">
+                &gt; view on GitHub_
+              </a>
+              <button class="card-link card-link-btn" id="sevendb-learn-more">
+                &gt; learn more_
+              </button>
+            </div>
           </div>
         </div>
 
@@ -373,6 +378,21 @@
             </div>
           </div>
 
+          <div class="timeline-entry" id="oss-mssql">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-project">MSSQL</span>
+                <span class="timeline-type">FEATURE</span>
+              </div>
+              <h3 class="timeline-title">Global Search Object</h3>
+              <p class="timeline-desc">
+                Added global search object support to MSSQL.
+              </p>
+              <a href="https://github.com" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -472,6 +492,98 @@
       <p class="konami-msg">&gt; ACHIEVEMENT UNLOCKED</p>
       <p class="konami-sub">You found the secret sequence.<br>You clearly know your way around a keyboard.</p>
       <p class="konami-hint">// press any key or click to dismiss</p>
+    </div>
+  </div>
+
+  <!-- SevenDB Deep Dive Modal -->
+  <div id="sevendb-modal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="sevendb-modal-close" aria-label="Close">&times;</button>
+      <div class="modal-scroll">
+        <h2 class="modal-title">SevenDB</h2>
+        <p class="modal-subtitle">A distributed cache with pub/sub capabilities and configurable fsync.</p>
+
+        <div class="modal-section">
+          <p>I've been building SevenDB for most of this year and I wanted to share what we're working on and get genuine feedback from people who are interested in databases and distributed systems.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-heading">&gt; what problem we're trying to solve</h3>
+          <p>A lot of modern applications need live data: dashboards that should update instantly, tickers and feeds, systems reacting to rapidly changing state.</p>
+          <p>Today, most systems handle this by polling&mdash;clients repeatedly asking the database &ldquo;has this changed yet?&rdquo;. That wastes CPU, bandwidth, and introduces latency and complexity. Triggers do help a lot here, but as soon as multiple machines and low latency applications enter, they get dicey.</p>
+          <p>Scaling databases horizontally introduces another set of problems:</p>
+          <ul>
+            <li>Nondeterministic behavior under failures</li>
+            <li>Subtle bugs during retries, reconnects, crashes, and leader changes</li>
+            <li>Difficulty reasoning about correctness</li>
+          </ul>
+          <p>SevenDB is our attempt to tackle both of these issues together.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-heading">&gt; 1. reactive by design</h3>
+          <p>Instead of clients polling, clients can subscribe to values or queries. When the underlying data changes, updates are pushed automatically.</p>
+          <p class="modal-quote">&ldquo;Tell me whenever this value changes&rdquo; instead of &ldquo;polling every few milliseconds&rdquo;</p>
+          <p>This reduces wasted work (compute, network and even latency) and makes real-time systems simpler and cheaper to run.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-heading">&gt; 2. deterministic execution</h3>
+          <p>The same sequence of logical operations always produces the same state.</p>
+          <p>Why this matters:</p>
+          <ul>
+            <li>Crash recovery becomes predictable</li>
+            <li>Retries don't cause weird edge cases</li>
+            <li>Multi-replica behavior stays consistent</li>
+            <li>Bugs become reproducible instead of probabilistic nightmares</li>
+          </ul>
+          <p>We explicitly test determinism by running randomized workloads hundreds of times across scenarios like:</p>
+          <ul>
+            <li>Crash before send / after send</li>
+            <li>Reconnects (OK, stale, invalid)</li>
+            <li>WAL rotation and pruning</li>
+            <li>3-node replica symmetry with elections</li>
+          </ul>
+          <p>If behavior diverges, that's a bug.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-heading">&gt; 3. raft-based replication</h3>
+          <p>We use Raft for consensus and replication, but layer deterministic execution on top so that replicas don't just agree&mdash;they behave identically.</p>
+          <p>The goal is to make distributed behavior boring and predictable.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-heading">&gt; the interesting part</h3>
+          <p>We're an in-memory KV store. One of the fun challenges in SevenDB was making emissions fully deterministic. We do that by pushing them into the state machine itself. No async &ldquo;surprises,&rdquo; no node deciding to emit something on its own. If the Raft log commits the command, the state machine produces the exact same emission on every node. Determinism by construction.</p>
+          <p>But this compromises speed significantly, so what we do to get the best of both worlds is:</p>
+          <p>On the durability side: a SET is considered successful only after the Raft cluster commits it&mdash;meaning it's replicated into the in-memory WAL buffers of a quorum. Not necessarily flushed to disk when the client sees &ldquo;OK.&rdquo;</p>
+          <p>Why keep it like this? Because we're taking a deliberate bet that plays extremely well in practice:</p>
+          <ul>
+            <li><strong>Redundancy buys durability</strong> &mdash; In Raft mode, our real durability is replication. Once a command is in the memory of a majority, you can lose a minority of nodes and the data is still intact.</li>
+            <li><strong>Fsync is the throughput killer</strong> &mdash; Physical disk syncs (fsync) are orders slower than memory or network replication. Forcing the leader to fsync every write would tank performance.</li>
+            <li><strong>Disk issues shouldn't stall a cluster</strong> &mdash; If one node's storage is slow or semi-dying, synchronous fsyncs would make the whole system crawl. By relying on quorum-memory replication, the cluster stays healthy as long as most nodes are healthy.</li>
+          </ul>
+          <p>So the tradeoff is small: yes, there's a narrow window where a simultaneous majority crash could lose in-flight commands. But the payoff is huge: predictable performance, high availability, and a deterministic state machine where emissions behave exactly the same on every node.</p>
+          <p class="modal-quote">In distributed systems, you often bet on the failure mode you're willing to accept. This is ours.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-heading">&gt; benchmarks</h3>
+          <div class="modal-bench">
+            <pre>SevenDB benchmark — GETSET
+Target: localhost:7379, conns=16, workers=16
+keyspace=100000, valueSize=16B, mix=GET:50/SET:50
+Warmup: 5s, Duration: 30s
+
+Ops:        total=3,695,354  success=3,695,354  failed=0
+Throughput: 123,178 ops/s
+Latency:    p50=0.111ms  p95=0.226ms  p99=0.349ms  max=15.663ms
+Reactive:   p50=0.145ms  p95=0.358ms  p99=0.988ms  max=7.979ms</pre>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
