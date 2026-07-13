@@ -309,11 +309,28 @@ body {
 .card-link:hover { color: var(--green); }
 .card-actions { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
 .card-link-btn {
-  background: none; border: none; cursor: pointer;
+  background: var(--paper-dark); cursor: pointer;
   font-family: var(--body-font); font-size: 0.82rem;
-  color: var(--orange); padding: 0; transition: color 0.2s;
+  color: var(--sepia); padding: 0.45rem 1rem;
+  border: 2px solid var(--sepia);
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  position: relative;
 }
-.card-link-btn:hover { color: var(--green); }
+.card-link-btn::after {
+  content: " █"; color: var(--orange);
+  animation: blink 1s step-end infinite;
+}
+.card-link-btn:hover {
+  background: var(--sepia); color: var(--paper);
+  box-shadow: 3px 3px 0 var(--orange);
+  transform: translate(-1px, -1px);
+}
+.card-link-btn:hover::after { color: var(--green); }
+.card-link-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--orange);
+}
 
 /* ═══════════ OPEN SOURCE ═══════════ */
 .opensource { background: var(--paper-mid); }
