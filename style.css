@@ -358,6 +358,20 @@ body {
 }
 .timeline-link:hover { color: var(--green); }
 
+/* In-progress tracker variant */
+.tracker-header-wip { background: var(--coffee); }
+.tracker-status-wip { color: var(--amber); }
+.marker-wip { background: var(--amber); animation: pulse-wip 2s ease-in-out infinite; }
+@keyframes pulse-wip {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(216,154,69,0.4); }
+  50% { box-shadow: 0 0 0 5px rgba(216,154,69,0); }
+}
+.type-wip {
+  background: rgba(216,154,69,0.15); color: var(--amber);
+}
+.issue-tracker.in-progress { border-color: var(--amber); }
+.issue-tracker.in-progress .timeline::before { background: rgba(216,154,69,0.2); }
+
 /* ═══════════ CONTACT / FOOTER ═══════════ */
 .contact {
   background: var(--coffee); color: var(--paper);
