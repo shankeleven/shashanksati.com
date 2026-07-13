@@ -66,13 +66,13 @@
         <span class="tag-sep">|</span>
         <span class="tag">Databases</span>
         <span class="tag-sep">|</span>
-        <span class="tag">Open Source</span>
+        <span class="tag">Agentic Memory</span>
       </p>
       <p class="hero-desc">
-        Building databases, distributed systems, developer tools, and infrastructure software.
+        Building databases, distributed systems, developer tools and infrastructure software.
       </p>
       <p class="hero-intro">
-        I enjoy designing systems that stay correct under failure, scale gracefully, and remain understandable. My interests span databases, distributed systems, networking, operating systems, and developer infrastructure.
+        I enjoy designing systems that stay correct under failure, scale gracefully, and remain understandable. My interests span databases, distributed systems, and almost everything about computers and software.
       </p>
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary" id="cta-projects">[ View Projects ]</a>
@@ -118,13 +118,9 @@
         <div class="badge-icon">🏆</div>
         <div class="badge-label">2× ICPC Regionalist</div>
       </div>
-      <div class="achievement-badge" id="badge-oss">
-        <div class="badge-icon">⚙</div>
-        <div class="badge-label">Open Source Contributor</div>
-      </div>
       <div class="achievement-badge" id="badge-langs">
         <div class="badge-icon">⌨</div>
-        <div class="badge-label">Go / Rust / C++</div>
+        <div class="badge-label">Go / C++ / Typescript</div>
       </div>
       <div class="achievement-badge" id="badge-systems">
         <div class="badge-icon">☰</div>
@@ -158,10 +154,10 @@
               <ul class="about-list">
                 <li><span class="list-bullet">▸</span> Distributed Systems</li>
                 <li><span class="list-bullet">▸</span> Databases</li>
-                <li><span class="list-bullet">▸</span> Networking</li>
+                <li><span class="list-bullet">▸</span> Agentic Memory</li>
+                <li><span class="list-bullet">▸</span> Context Engineering</li>
                 <li><span class="list-bullet">▸</span> Operating Systems</li>
                 <li><span class="list-bullet">▸</span> Performance Engineering</li>
-                <li><span class="list-bullet">▸</span> Open Source</li>
               </ul>
             </div>
           </div>
@@ -170,7 +166,7 @@
             <h3 class="about-heading">&gt; philosophy</h3>
             <div class="about-card quote-card">
               <blockquote>
-                "I like understanding how systems work from first principles. Whether it's a database replication protocol, a network stack, or an operating system scheduler, I enjoy digging into the layers beneath abstractions."
+                "Visualise how systems work from first principles, Play chess and Don't use LinkedIn."
               </blockquote>
             </div>
           </div>
@@ -250,7 +246,7 @@
           <div class="card-body">
             <h3 class="card-title">Khoj</h3>
             <p class="card-desc">
-              A Rust-based TF-IDF search engine optimized for local document search.
+              A Rust-based TF-IDF search engine optimized for local in-text document search.
             </p>
             <div class="card-metrics">
               <div class="metric">
@@ -285,7 +281,7 @@
           <div class="card-body">
             <h3 class="card-title">Teach-Code</h3>
             <p class="card-desc">
-              Collaborative coding platform featuring real-time code editing, shared whiteboard, and voice communication.
+              Collaborative coding platform featuring real-time code editing, parsing, shared whiteboard, and voice communication.
             </p>
             <div class="card-tech">
               <span class="tech-tag">Go</span>
@@ -321,7 +317,10 @@
               <span class="tech-tag">TCP</span>
               <span class="tech-tag">Visualization</span>
             </div>
-            <a href="https://github.com/shashank-sati" class="card-link" id="link-quicblog" target="_blank" rel="noopener">
+            <a href="https://quic.blog" class="card-link" id="link-quicblog" target="_blank" rel="noopener">
+              &gt; Check out_
+            </a>
+            <a href="https://github.com/shankeleven/quic.blog" class="card-link" id="link-quicblog" target="_blank" rel="noopener">
               &gt; view on GitHub_
             </a>
           </div>
@@ -357,26 +356,12 @@
               </div>
               <h3 class="timeline-title">gRPC Callback Service Support</h3>
               <p class="timeline-desc">
-                Added callback service support to FlatBuffers gRPC integration.
+                Added gRPC callback service to FlatBuffers compiler.
               </p>
-              <a href="https://github.com/google/flatbuffers" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+              <a href="https://github.com/google/flatbuffers/pull/8666/" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
             </div>
           </div>
 
-          <div class="timeline-entry" id="oss-kubevirt">
-            <div class="timeline-marker"></div>
-            <div class="timeline-card">
-              <div class="timeline-meta">
-                <span class="timeline-project">KubeVirt</span>
-                <span class="timeline-type">FIX</span>
-              </div>
-              <h3 class="timeline-title">Startup Probe Configuration</h3>
-              <p class="timeline-desc">
-                Contributed startup probe fixes to the KubeVirt project.
-              </p>
-              <a href="https://github.com/kubevirt/kubevirt" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
-            </div>
-          </div>
 
           <div class="timeline-entry" id="oss-mssql">
             <div class="timeline-marker"></div>
@@ -385,13 +370,31 @@
                 <span class="timeline-project">MSSQL</span>
                 <span class="timeline-type">FEATURE</span>
               </div>
-              <h3 class="timeline-title">Global Search Object</h3>
+              <h3 class="timeline-title">Global Object Search</h3>
               <p class="timeline-desc">
-                Added global search object support to MSSQL.
+                Added global object search to MSSQL, to allow for search through tables, functions  and views from the VS-code window itself.
               </p>
-              <a href="https://github.com" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+              <a href="https://github.com/microsoft/vscode-mssql/pull/19914" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
             </div>
           </div>
+
+
+          <div class="timeline-entry" id="oss-kubevirt">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-project">KubeVirt</span>
+                <span class="timeline-type">FEATURE</span>
+              </div>
+              <h3 class="timeline-title">Startup Probe</h3>
+              <p class="timeline-desc">
+                Added startup probe to the KubeVirt, for virtual machine deployment using Kubernetes.
+              </p>
+              <a href="https://github.com/kubevirt/kubevirt/pull/14177" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+            </div>
+          </div>
+
+
 
         </div>
       </div>
@@ -413,9 +416,9 @@
               </div>
               <h3 class="timeline-title">Adaptive Join Support</h3>
               <p class="timeline-desc">
-                Adding support for adaptive join execution to the distributed SQL engine.
+                Designed and implemented a runtime-adaptive lookup join execution mode that automatically switches to a hash-based strategy when optimizer estimates are inaccurate, delivering 2–3× speedups on large inputs while maintaining near-zero overhead in normal execution paths.
               </p>
-              <a href="https://github.com/cockroachdb/cockroach" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+              <a href="https://github.com/cockroachdb/cockroach/pull/168578" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
             </div>
           </div>
 
@@ -426,11 +429,10 @@
                 <span class="timeline-project">ClickHouse Operator</span>
                 <span class="timeline-type type-wip">IN-PROGRESS</span>
               </div>
-              <h3 class="timeline-title">Distributed ConfigMaps</h3>
+              <h3 class="timeline-title">remote_servers fragmentation via ConfigMaps</h3>
               <p class="timeline-desc">
-                Making ConfigMaps distributed across the operator for improved configuration management.
-              </p>
-              <a href="https://github.com/Altinity/clickhouse-operator" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
+                Implemented deterministic fragmentation of oversized remote_servers.xml configurations to overcome Kubernetes ConfigMap size limits, enabling reliable operation of large-scale ClickHouse clusters with automatic rollout and garbage collection support.              </p>
+              <a href="https://github.com/Altinity/clickhouse-operator/pull/1948" class="timeline-link" target="_blank" rel="noopener">&gt; view PR_</a>
             </div>
           </div>
 
