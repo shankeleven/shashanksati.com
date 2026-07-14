@@ -78,6 +78,7 @@
         <a href="#projects" class="btn btn-primary" id="cta-projects">[ View Projects ]</a>
         <a href="#opensource" class="btn btn-secondary" id="cta-opensource">[ Open Source Work ]</a>
         <a href="public/resume.pdf" class="btn btn-secondary" id="cta-resume" target="_blank" rel="noopener">[ Resume ]</a>
+        <button class="btn btn-secondary btn-evakeel" id="cta-evakeel">[ e-Vakeel ]</button>
       </div>
 
       <!-- Terminal animation -->
@@ -583,6 +584,44 @@ Throughput: 123,178 ops/s
 Latency:    p50=0.111ms  p95=0.226ms  p99=0.349ms  max=15.663ms
 Reactive:   p50=0.145ms  p95=0.358ms  p99=0.988ms  max=7.979ms</pre>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- e-Vakeel Modal -->
+  <div id="evakeel-modal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="evakeel-modal-close" aria-label="Close">&times;</button>
+      <div class="modal-scroll">
+        <h2 class="modal-title">e-Vakeel</h2>
+        <p class="modal-subtitle">A legal AI assistant &mdash; my first startup attempt.</p>
+
+        <div class="modal-section">
+          <p>I've always wanted to build a startup. I still do.</p>
+          <p>The first serious attempt came in third year of college, it was e-Vakeel, a legal AI assistant that aimed to make legal help accessible to anyone with a phone. The idea was simple: if someone was stuck in a legal situation, they should be able to get help without spending hours searching through documents or figuring out where to start.</p>
+          <p>We wanted e-Vakeel to help with things like:</p>
+          <ul>
+            <li>Drafting legal documents</li>
+            <li>Finding similar cases</li>
+            <li>Discovering applicable laws and provisions</li>
+            <li>Understanding legal procedures</li>
+            <li>Getting practical legal guidance</li>
+          </ul>
+          <p>There were three of us working on it, and for several months it completely consumed our lives.</p>
+          <p>Around that time Ola had just launched Krutrim around Diwali and was giving away &#8377;10,000 worth of free tokens. We collected accounts from almost everybody in our hostel and ended up with over &#8377;4 lakhs worth of tokens. Looking back, it sounds ridiculous, but at the time it felt like we had unlocked infinite compute.</p>
+          <p>We scraped whatever we could get our hands on, applied for data access from Indian Kanoon, scraped them throughout night (their non-busy hours as we assumed), searched through obscure corners of the internet for datasets, contacted everybody who had attempted any such project, got help from a lot of researchers and eventually accumulated over a hundred open and closed datasets related to Indian law.</p>
+          <p>One thing we quickly realized was that legal judgments are a mess for machines. Before a model can answer anything useful, it first needs to understand which part is a fact, an argument, a precedent or a final ruling.</p>
+          <p>Not just to answer but also to find similar cases, as we give different weightages for case similarity, for instance, cases with similar facts are far more mutually relevant than cases with similar acts.</p>
+          <p>For this, we built and annotated a dataset of over 60,000 legal judgments, which translated to roughly half a million labelled data points. Using this dataset, we trained a BiLSTM-CRF model for semantic segmentation of legal judgments and achieved 86.2% accuracy, which as per our research was state-of-the-art for our benchmark at the time.</p>
+          <p>For response generation, we experimented heavily with reasoning pipelines. This was long before &ldquo;reasoning models&rdquo; and &ldquo;chain of thought&rdquo; became mainstream terms. We spent an absurd amount of tokens trying different prompting strategies, intermediate reasoning steps, retrieval techniques, and verification flows. At times it honestly felt like we were just burning through tokens for no reason.</p>
+          <p>Fortunately we were expecting funding from our college incubator, in addition to those collected free tokens, so we weren't too worried about burning through compute while experimenting.</p>
+          <p>We also met quite a few lawyers and a lot of law students. They were pretty much the only people who could actually use what we were building and give us feedback for free. Some conversations completely changed how we thought about the product. Others made us realise that things we thought were important weren't important at all.</p>
+          <p>We also arranged for meetings with different US based legal startups, disguised as representatives from our college and wanting to help out students who try startups with their legal compliances to get a taste of what and how they were offering, we received many insights like we got to know how important it was to distribute extensions for docs and MS-word for drafting legal documents.</p>
+          <p>I had never had so much fun before. There was always something happening. A new dataset. A new model. A new idea. A new feature. A new conversation. Every week felt different. We spent an entire month working on a file manager so that we could also collect context for lawyers from their own documents when they use the chatbot, which we never even shipped. We learnt aws, hosting, how models are deployed locally and used through a tunnel, how we could use our 4 laptop setup for hosting an entire promotional event (which we never did but planned to keep the laptop with the best network card as the load balancer and the rest for model hosting), to fully using cloud. It was all just so much fun. We also had planned the distribution through a whatsapp bot, as meta ai wasn't a thing back then, but when we check the costs that we incurred per query, the unit economics would never sit well.</p>
+          <p>Eventually, we couldn't make it work but even today, whenever I think about building companies, e-Vakeel is the first thing that comes to mind. It taught me more than any course ever did and it remains one of the most memorable things I've worked on.</p>
+          <p>e-Vakeel never became the company we hoped it would become, but it will always have a special place in my heart. I still have all the datasets, experiments, models and code sitting around somewhere. I plan to make all the work open source so the next ones trying this, continue from where we left off, I should have already done this by now, but I soon will.</p>
         </div>
 
       </div>

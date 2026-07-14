@@ -326,11 +326,11 @@ function showToast(headerText, bodyHTML, duration) {
   });
 })();
 
-/* ═══════════ SevenDB Modal ═══════════ */
-(function () {
-  var btn = document.getElementById("sevendb-learn-more");
-  var modal = document.getElementById("sevendb-modal");
-  var closeBtn = document.getElementById("sevendb-modal-close");
+/* ═══════════ Generic Modal Handler ═══════════ */
+function initModal(triggerId, modalId, closeId) {
+  var btn = document.getElementById(triggerId);
+  var modal = document.getElementById(modalId);
+  var closeBtn = document.getElementById(closeId);
 
   if (!btn || !modal || !closeBtn) return;
 
@@ -349,15 +349,16 @@ function showToast(headerText, bodyHTML, duration) {
   btn.addEventListener("click", openModal);
   closeBtn.addEventListener("click", closeModal);
 
-  // Close on overlay click (not the box itself)
   modal.addEventListener("click", function (e) {
     if (e.target === modal) closeModal();
   });
 
-  // Close on Escape
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !modal.classList.contains("hidden")) {
       closeModal();
     }
   });
-})();
+}
+
+initModal("sevendb-learn-more", "sevendb-modal", "sevendb-modal-close");
+initModal("cta-evakeel", "evakeel-modal", "evakeel-modal-close");
